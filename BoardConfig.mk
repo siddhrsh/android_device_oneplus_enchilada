@@ -83,8 +83,6 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_MAX_BRIGHTNESS := 1023
 TW_DEFAULT_BRIGHTNESS := 420
-TW_Y_OFFSET := 80
-TW_H_OFFSET := -80
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXCLUDE_SUPERSU := true
 TW_EXTRA_LANGUAGES := true
@@ -105,3 +103,7 @@ TW_INCLUDE_CRYPTO := true
 
 # Extras
 BOARD_SUPPRESS_SECURE_ERASE := true
+TW_INCLUDE_REPACKTOOLS := true
+TW_Y_OFFSET := 80
+TW_H_OFFSET := -80
+TW_HAS_EDL_MODE := true
