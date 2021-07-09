@@ -29,7 +29,7 @@ $(call inherit-product, device/oneplus/enchilada/device.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := enchilada
-PRODUCT_NAME := omni_enchilada
+PRODUCT_NAME := twrp_enchilada
 PRODUCT_BRAND := OnePlus
 PRODUCT_MODEL := OnePlus A6000
 PRODUCT_MANUFACTURER := OnePlus
