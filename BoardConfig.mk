@@ -22,6 +22,7 @@
 # bitrot and build breakages. Building a component unconditionally does
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
+DEVICE_PATH := device/oneplus/enchilada
 
 # Architecture
 TARGET_ARCH := arm64
@@ -31,7 +32,7 @@ TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := cortex-a75
 
 TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv8-a
+TARGET_2ND_ARCH_VARIANT := armv8-2a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a75
@@ -55,6 +56,7 @@ TARGET_PREBUILT_KERNEL := device/oneplus/enchilada/prebuilt/Image.gz-dtb
 TARGET_BOARD_PLATFORM := sdm845
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno630
 QCOM_BOARD_PLATFORMS += sdm845
+TARGET_USES_HARDWARE_QCOM_BOOTCTRL := true
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144
@@ -108,24 +110,16 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 TW_NO_SCREEN_BLANK := true
 TW_USE_TOOLBOX := true
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 
 # Use mke2fs to create ext4 images
 TARGET_USES_MKE2FS := true
 
-# A/B updater updatable partitions list. Keep in sync with the partition list
-# with "_a" and "_b" variants in the device. Note that the vendor can add more
-# more partitions to this list for the bootloader and radio.
-AB_OTA_PARTITIONS += \
-    boot \
-    system \
-    vendor \
-    vbmeta \
-    dtbo 
 
 # Encryption
 PLATFORM_SECURITY_PATCH := 2099-12-31
-TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_CRYPTO_FBE := true
+TW_INCLUDE_CRYPTO := false
+TW_INCLUDE_CRYPTO_FBE := false
 
 # Extras
 BOARD_PROVIDES_GPTUTILS := true
@@ -142,4 +136,3 @@ TW_EXCLUDE_TWRPAPP := true
 TW_NO_USB_STORAGE := true
 PLATFORM_VERSION := 16.1.0
 TW_INCLUDE_RESETPROP := true
-
